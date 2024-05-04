@@ -47,7 +47,6 @@ class MqttController extends Controller
             return Carbon::createFromTimestamp($timestamp)->timezone('Asia/Jakarta')->format('H:i');
         });
 
-        
         // Assuming $inverterNumber is between 1 and 10
         $activePowers = MQTT::where('device_name', 'Inverter ' . $inverterNumber)->get();
         $adjustedPowers = $activePowers->pluck('ActivePower')->map(function ($power) {
